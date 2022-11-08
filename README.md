@@ -39,4 +39,54 @@ public class RecursionPrograms
     return arr[n] + SumOfDigit(n-1);
   }
 }
- 
+# Day-1 linked list adding node to last 
+package linkedlist;
+public  class AddingNodeToLast 
+{
+	class Node
+	{
+		int val;
+		Node next;
+		public Node(int val)
+		{
+			this.val = val;
+		}
+	}
+	static Node head = null;
+	static Node tail = null;
+	public void AddNodeInLast(int val)
+	{
+		Node newNode = new Node(val);
+		// if head itself null
+		if(head==null)
+		{
+			head = newNode;
+			tail = newNode;
+		}
+		else
+		{
+			tail.next = newNode;
+			newNode.next = null;
+			tail = newNode;
+		}
+	}
+	public void PrintLinkedlist(Node HeadNode)
+	{
+		Node current = HeadNode;
+		while(current!=null)
+		{
+			System.out.println(current.val);
+			current = current.next;
+		}
+	}
+	public static void main(String[] args) 
+	{
+		AddingNodeToLast add = new AddingNodeToLast();
+		add.AddNodeInLast(10);
+		add.AddNodeInLast(20);
+		add.AddNodeInLast(30);
+		add.PrintLinkedlist(head);
+		
+	}	
+}
+
