@@ -70,6 +70,81 @@ public  class AddingNodeToLast
 			tail = newNode;
 		}
 	}
+	# DAY 2
+	// node at the beginning
+	public void AddNodeAtBegining(int val)
+	{
+		Node newNode = new Node(val);
+		// checking if the head is null only 
+		if(head == null)
+		{
+			head = newNode;
+			tail = newNode;
+		}
+		newNode.next = head;
+		head = newNode;
+	}
+	// Adding node at specific index
+	public void AddNodeAtIndex(int val, int index)
+	{
+		int count = 1;
+		Node current = head;
+		while(current!=null && count != index-1)
+		{
+			current = current.next;
+			count++;
+		}
+		Node newNode = new Node(val);
+			Node temp = current.next;
+			current.next = newNode;
+			newNode = temp;	
+	}
+	// Delete the node at the end
+	public void DeleteNodeAtEnd()
+	{
+		Node current = head;
+		while(current.next.next!=null)
+		{
+			//continue moving to next node
+			current = current.next;
+		}
+		current.next = null;
+		tail = current;
+	}
+	// Delete first node
+	public void DeleteFirstNode()
+	{
+		head = head.next;
+	}
+	// Delete Node at specific index
+	public void RemoveAtspecifcIndex(int index)
+	{	
+		if(index==1)
+		{
+			DeleteFirstNode();
+		}
+		else
+		{
+
+			int count =1;
+			Node current = head;
+			while(current!=null && count!=index-1)
+			{
+				current = current.next;
+				count++;
+			}
+			current.next = current.next.next;
+		}
+	}
+	public void PrintLinkedList(Node HeadNode)
+	{
+		Node current = HeadNode;
+		while(current!=null)
+		{
+			System.out.println(current.val);
+			current = current.next;
+		}
+	}
 	public void PrintLinkedlist(Node HeadNode)
 	{
 		Node current = HeadNode;
