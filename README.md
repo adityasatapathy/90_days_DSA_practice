@@ -164,4 +164,72 @@ public  class AddingNodeToLast
 		
 	}	
 }
+# Day 3 reverse linkedlist
+package linkedlist;
+public class ReverseLinkedList 
+{
+	class Node
+	{
+		int val;
+		Node next;
+		public Node(int val)
+		{
+			this.val = val;
+		}
+		
+	}
+	static Node head = null;
+	static Node tail = null;
+	public void AddNodeTolast(int val)
+	{
+		Node newNode = new Node(val);
+		if(head == null)
+		{
+			head = newNode;
+			tail = newNode;
+		}
+		else
+		{
+			tail.next = newNode;
+			newNode.next = null;
+			tail = newNode;
+		}
+	}
+	public void PrintLinkedList(Node HeadNode)
+	{
+		Node current = HeadNode;
+		while(current!=null)
+		{
+			System.out.println(current.val);
+			current = current.next;
+		}
+	}
+	// Reverse linked list
+	public void ReverseLinkedlist()
+	{
+		Node current = head;
+		Node prev = null;
+		Node next = null;
+		while(current!=null)
+		{
+			next = current.next;
+			current.next = prev;
+			prev = current;
+			current = next;
+		}
+		PrintLinkedList(prev);
+	}
+	public static void main(String[] args) 
+	{
+		ReverseLinkedList node = new ReverseLinkedList();
+		node.AddNodeTolast(10);
+		node.AddNodeTolast(20);
+		node.AddNodeTolast(30);
+		node.PrintLinkedList(head);
+		node.ReverseLinkedlist();
+		
+	}
+
+}
+
 
