@@ -231,5 +231,40 @@ public class ReverseLinkedList
 	}
 
 }
+# Days 3 and 4 stack and reverse stack
+package Stack;
+
+import java.util.Stack;
+
+public class Reverse_stack {
+
+	public static void main(String[] args) 
+	{
+		Stack<Integer>stack1 = new Stack<Integer>();
+		System.out.println(stack1.isEmpty());
+		stack1.push(10);
+		stack1.push(20);
+		stack1.push(30);
+		System.out.println(stack1);
+		Stack<Integer>stack2 = new Stack<Integer>();
+		Stack<Integer>stack3 = new Stack<Integer>();
+		MoveTostack(stack1, stack2);
+		MoveTostack(stack2, stack3);
+		MoveTostack(stack3, stack1);
+		System.out.println(stack1);
+	}
+	
+	private static void MoveTostack(Stack<Integer> source, Stack<Integer> destination) 
+	{
+		while(!source.isEmpty())
+		{
+			int value = source.peek();
+			destination.push(value);
+			source.pop();
+		}
+	}
+
+}
+
 
 
