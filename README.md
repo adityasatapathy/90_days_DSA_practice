@@ -265,6 +265,45 @@ public class Reverse_stack {
 	}
 
 }
+# Day 5 inserting element into stack at given index
+package Stack;
+
+import java.util.Stack;
+
+public class InsertAtGivenIndex {
+
+	public static void main(String[] args) 
+	{
+		Stack<Integer>stack1 = new Stack<Integer>();
+		stack1.push(10);
+		stack1.push(20);
+		stack1.push(30);
+		System.out.println(stack1);
+		inseringAtgivenindex(2, 40, stack1);
+		System.out.println(stack1);
+	}
+
+	private static void inseringAtgivenindex(int index, int value, Stack<Integer> source) 
+	{
+		Stack<Integer>temp = new Stack<Integer>();
+		for(int i=0; i<=source.size()-index;i++)
+		{
+			int item = source.peek();
+			temp.push(item);
+			source.pop();
+		}
+		source.push(value);
+		while(!temp.isEmpty())
+		{
+			int item = temp.peek();
+			source.push(item);
+			temp.pop();
+		}
+		
+	}
+
+}
+
 
 
 
