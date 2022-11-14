@@ -347,6 +347,42 @@ public class MinFromStack
 
 }
 
+# Day 5 sorted stack
+package Stack;
+
+import java.util.Stack;
+
+public class SortedStack {
+
+	public static void main(String[] args) 
+	{
+		Stack<Integer>stack1 = new Stack<Integer>();
+		stack1.push(40);
+		stack1.push(20);
+		stack1.push(30);
+ 		System.out.println("sorted stack is:"+sortedstack(stack1));
+
+	}
+
+	private static Stack<Integer> sortedstack(Stack<Integer> source)
+	{
+		Stack<Integer>temp = new Stack<Integer>();
+		while(!source.isEmpty())
+		{
+			int item = source.pop();
+			while(!temp.isEmpty() && temp.peek()>item)
+			{
+				int temp_item = temp.pop();
+				source.push(temp_item);
+			}
+			temp.push(item);
+		}
+		return temp;
+	}
+
+}
+
+
 
 
 
