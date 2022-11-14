@@ -303,6 +303,50 @@ public class InsertAtGivenIndex {
 	}
 
 }
+# Day 5 min value from stack
+package Stack;
+
+import java.util.Stack;
+
+public class MinFromStack 
+{
+	static Stack<Integer>source = new Stack<Integer>();
+	static Stack<Integer>temp = new Stack<Integer>();
+	public static void main(String[] args) 
+	{
+		custompush(10);
+		custompush(20);
+		custompush(2);
+		System.out.println(temp.peek()+":is the min value");
+		custompop();
+		System.out.println(temp.peek()+":is the min value");
+
+	}
+	private static void custompush(int n) 
+	{
+		
+		source.push(n);
+		if(temp.isEmpty())
+		{
+			temp.push(n);
+		}
+		else if(temp.peek()>n)
+		{
+			temp.push(n);
+		}
+	}
+	private static void custompop() 
+	{
+		int item = source.peek();
+		source.pop();
+		if(temp.peek() == item)
+		{
+			temp.pop();
+		}
+	}
+
+}
+
 
 
 
