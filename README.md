@@ -475,7 +475,7 @@ public class ReverseInbuiltIMethodUsing_ArrrayDequeue
 	}
 
 }
-# Day 7- PriorityQueue.
+# Day 7- PriorityQueue Enqueue
 package queue;
 import java.util.PriorityQueue;
 
