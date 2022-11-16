@@ -382,6 +382,186 @@ public class SortedStack {
 
 }
 
+# Day 7 Queue - Enqueue Dequeue using Array
+package queue;
+
+public class EnqueueDequeueUsingArray
+{
+	int rear;
+	int front;
+	int a[];
+	int size;
+	public EnqueueDequeueUsingArray(int size)
+	{
+		rear = -1;
+		this.size = size;
+		this.a = new int[size];
+	}
+	public void enqueue(int n) 
+	{
+		rear++;
+		a[rear] = n;
+	}
+	public int dequeue()
+	{
+		int item = a[0];
+		for(int i=0;i<rear;i++)
+		{
+			a[i]=a[i+1];
+		}
+		rear--;
+		return item;
+	}
+	public void printqueue()
+	{
+		for(int i=0;i<=rear;i++)
+		{
+			System.out.println(a[i]);
+		}
+	}
+	public static void main(String[] args)
+	{
+		
+		EnqueueDequeueUsingArray queue = new EnqueueDequeueUsingArray(5);
+		queue.enqueue(4);
+		queue.enqueue(2);
+		queue.dequeue();
+		queue.enqueue(9);
+		queue.enqueue(3);
+		queue.printqueue();
+	}
+
+}
+# Day 7- reversing using ArrayDeque
+package queue;
+
+import java.util.ArrayDeque;
+import java.util.Queue;
+import java.util.Stack;
+
+public class ReverseInbuiltIMethodUsing_ArrrayDequeue 
+{
+
+	public static void main(String[] args) 
+	{
+		Queue<Integer> queue = new ArrayDeque<Integer>();
+		queue.add(10);
+		queue.add(20);
+		queue.add(30);
+		queue.add(40);
+		queue.add(50);
+		queue.remove();
+		queue.remove(40);
+		for (int ele :queue)
+		{
+			System.out.println(ele);
+		}
+		Stack<Integer>stack1 = new Stack<Integer>();
+		while(!queue.isEmpty())
+		{
+			int item = queue.remove();
+			stack1.push(item);
+		}
+		while(!stack1.isEmpty())
+		{
+			int item = stack1.pop();
+			queue.add(item);
+		}
+		System.out.println("Queue after reverse");
+		for (int ele :queue)
+		{
+			System.out.println(ele);
+		}
+	}
+
+}
+# Day 7- PriorityQueue.
+package queue;
+import java.util.PriorityQueue;
+
+public class Enqueue_priority_queue 
+{
+		int rear;
+		int front;
+		int[] a;
+		int size;
+		public Enqueue_priority_queue(int size)
+		{
+			rear = -1;
+			this.size=size;
+			//front = 0;
+			this.a = new int[size];
+		}
+		
+		public void enQueue(int x)
+		{
+			if(rear == -1)
+			{
+				rear++;
+				a[rear]=x;
+			}
+			else
+			{
+			for(int i =rear;i>=0;i--)
+			{
+				if(a[i]>x)
+				{
+					a[i+1] = a[i];
+					if(i == 0)
+						a[i]= x;
+				}
+				else {
+					a[i+1]=x;
+					break;
+				}
+			}
+			
+				rear++;
+			}
+				
+			
+		}
+		
+		public int deQueue()
+		{
+			
+			int ele =a[0];
+			for(int i =0;i<rear;i++)
+			{
+				a[i] = a[i+1];
+				
+			}
+			rear--;
+			return ele;
+		}
+		
+		public void printQueue()
+		{
+			for(int i =0;i<=rear;i++)
+			{
+				System.out.println(a[i]);
+			}
+		}
+	
+		public static void main(String[] args)
+		{
+			Enqueue_priority_queue qd = new Enqueue_priority_queue(10);
+			qd.enQueue(4);
+			qd.enQueue(2);
+			qd.deQueue();
+			qd.enQueue(9);
+			qd.enQueue(3);
+			qd.enQueue(12);
+			qd.deQueue();
+			qd.deQueue();
+			qd.printQueue();
+
+		}
+	
+	}
+
+
+
 
 
 
