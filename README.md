@@ -560,6 +560,37 @@ public class Enqueue_priority_queue
 	
 	}
 
+# Day 8 bubble sort and time complexity
+package sorting;
+
+import java.util.Arrays;
+
+public class BubbleSort {
+
+	public static void main(String[] args) 
+	{
+		int arr[] = {6,4,7,8,9,10};
+		System.out.println("Array before sort:"+ Arrays.toString(arr));
+		int size = arr.length;
+		for(int i=0;i<size-1;i++)
+		{
+			for(int j=0;j<size-1;j++)
+			{
+				if(arr[j]>arr[j+1])
+				{
+					int temp = arr[j];
+					arr[j]=arr[j+1];
+					arr[j+1]=temp;
+				}
+			}
+		}
+		System.out.println("Array after sort:"+ Arrays.toString(arr));
+
+	}
+
+}
+
+
 
 
 
