@@ -589,6 +589,35 @@ public class BubbleSort {
 	}
 
 }
+# Day 9 merge sort and some practice
+	package sorting;
+
+import java.util.Arrays;
+
+public class SelectionSort 
+{
+	 public static void main(String[]args)
+	 {
+ 		 int arr[] = {3,2,7,9,1,10,};
+		 System.out.println("Array before sort:"+Arrays.toString(arr));
+		 int size = arr.length;
+ 		 for(int i=0;i<size;i++)
+ 		 	{
+ 			 	int smallest =i; 			 
+ 			 	for(int j =i;j<size;j++)
+ 			 	{
+ 			 		 if(arr[j]<arr[smallest])
+ 			 		{
+ 			 			int temp = arr[smallest];
+ 			 			arr[smallest]=arr[j];
+ 			 			arr[j]=temp;
+ 			 		}
+ 			 	}
+		 }
+ 		System.out.println("Array before sort:"+Arrays.toString(arr));
+	 }
+}
+
 
 
 
