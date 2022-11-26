@@ -617,6 +617,44 @@ public class SelectionSort
  		System.out.println("Array before sort:"+Arrays.toString(arr));
 	 }
 }
+# Day 10 binary and jump search
+binary search
+package search;
+
+public class Jump_search 
+{
+
+	public static void main(String[] args)
+	{
+			int arr[] = {1,2,3,5,6,7,8};
+			System.out.println(jumpsearch(arr,8));
+
+	}
+	public static int jumpsearch(int arr[], int target)
+	{
+		int blocksize = (int) Math.sqrt(arr.length);
+		System.out.println(blocksize);
+		int start =0;
+		int last = blocksize-1;
+		while(arr[last]<target && start<arr.length)
+		{
+			start = last +1;
+			last = last + blocksize;
+			if(last>arr.length-1)
+				last = arr.length-1;
+		}
+			for(int i=start;i<=last;i++)
+			{
+				if(arr[i]==target)
+				{
+					return i;
+				}
+			}
+		return -1;
+	}
+}
+
+
 
 
 
