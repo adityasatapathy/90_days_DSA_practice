@@ -654,6 +654,58 @@ public class Jump_search
 	}
 }
 
+# binary search
+						    package search;
+
+public class Binary_search {
+
+	public static void main(String[] args) 
+	{
+		int arr[] = {1,2,4,6,9,12};
+		System.out.println(binarysearch(arr, 9));
+		System.out.println(binarysearch_recurion(arr, 9, 0, arr.length-1));
+	}
+//Sorted arrays
+	public static int binarysearch(int arr[], int target)
+	{
+  		int left =0;int right=arr.length-1; int middle;
+  		while(left<=right)
+  		{
+  			middle = (left+right)/2;
+  			if(arr[middle]==target)
+  				return middle;
+  			else if(arr[middle]>target)
+  				right = middle -1;
+  			else
+  				left = middle+1;
+  		}
+		return -1;
+		
+	}
+	public static int binarysearch_recurion(int arr[], int target, int left, int right)
+	{	
+		if(left>right)
+ 			return -1;
+		int middle = (left+right)/2;
+		if(arr[middle]== target)
+		{
+			return middle;
+		}
+		if(arr[middle]>target)
+		{
+			right = middle-1;
+			return binarysearch_recurion(arr, target,left,right);
+		}
+		else
+		{
+			left= middle +1;
+			return binarysearch_recurion(arr, target,left,right);
+		}
+	}
+
+}
+
+						    
 
 
 
